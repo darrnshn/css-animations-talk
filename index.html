@@ -1,0 +1,557 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-patible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" href="animations.css">
+	<style>
+		.row {
+			margin: 0;
+		}
+
+		.row .col-1 {
+			float: left;
+			width: 16%;
+		}
+
+		.row .col-2 {
+			float: left;
+			width: 33%;
+		}
+
+		.row .col-3 {
+			float: left;
+			width: 48%;
+		}
+
+		.row .col-4 {
+			float: left;
+			width: 64%;
+		}
+
+		.row .col-5 {
+			float: left;
+			width: 80%;
+		}
+
+		.row .col-6 {
+			float: left;
+			width: 96%;
+		}
+
+		.row-divider {
+			margin-top: 4em;
+		}
+
+		.center {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.strike {
+		  text-decoration: line-through;
+		}
+
+		.graytext {
+		 	opacity: 0.5;
+		}
+
+	</style>
+</head>
+<body class="list">
+	<section class="slide"><div>
+		<h2><img src="pictures/chrome.png" style="width:1em;height:1em;" /> Responsive CSS Animations</h2>
+		<p>Darren Shen <span class="graytext">(shend@)</span></p>
+		<p>Host: Tim Loh <span class="graytext">(timloh@)</span></p>
+	</div></section>
+	<section class="slide" style="background: url('pictures/first-website.jpg') center no-repeat;"><div>
+		<!-- Intro: First web page-->
+	</div></section>
+	<section class="slide" style="background: url('pictures/best.jpg') center no-repeat; background-size: contain;"><div>
+		<!-- Intro: Best web page-->
+	</div></section>
+	<section class="slide"><div>
+		<!-- What are CSS animations? Ball with eyes -->
+		<div class="row">
+			<div class="col-2">
+				<figure class="demo-ball demo-ball-shading">
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-eye-separator"></div>
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-moustache"></div>
+				</figure>
+			</div>
+			<div class="col-4">
+				<pre>
+					<code>.box {</code>
+					<code>  background: pink;</code>
+					<code>  border-radius: 20%;</code>
+					<code>  <mark class="comment">/* etc. */</mark> </code>
+					<code>}</code>
+				</pre>
+				<pre>
+					<code>.eye { <mark class="comment">/* styles for eye */</mark> }</code>
+				</pre>
+				<pre>
+					<code>.moustache { <mark class="comment">/* styles for moustache */</mark> }</code>
+				</pre>
+			</div>
+		</div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- What are CSS animations? Bouncy ball with keyframes explanation -->
+		<div class="row">
+			<pre>
+				<code><mark>@keyframes</mark> bounce {</code>
+				<code>  <mark>50%</mark> { transform: translateY(-60px); }</code>
+				<code>}</code>
+			</pre>
+		</div>
+		<div class="row row-divider next" style="text-align: center;">
+			<div class="col-2">
+				<figure class="demo-ball demo-ball-shading center">
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-eye-separator"></div>
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-moustache"></div>
+				</figure>
+				<div>0%</div>
+			</div>
+			<div class="col-2">
+				<figure class="demo-ball demo-ball-shading center" style="transform: translateY(-60px);">
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-eye-separator"></div>
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-moustache"></div>
+				</figure>
+				<div>50%</div>
+			</div>
+			<div class="col-2">
+				<figure class="demo-ball demo-ball-shading center">
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-eye-separator"></div>
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-moustache"></div>
+				</figure>
+				<div>100%</div>
+			</div>
+		</div>
+	</div></section>
+		<section class="slide"><div>
+		<!-- What are CSS animations? Bouncy ball with just translate -->
+		<div class="row">
+			<div class="col-2">
+				<figure class="demo-ball demo-ball-shading next" style="-webkit-animation: demo-bounce-1 1s infinite ease-in-out;">
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-eye-separator"></div>
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-moustache"></div>
+				</figure>
+			</div>
+			<div class="col-4">
+				<pre>
+					<code>@keyframes bounce {</code>
+					<code>  50% { transform: translateY(-60px); }</code>
+					<code>}</code>
+				</pre>
+				<pre>
+					<code>.box {</code>
+					<code>  <mark class="comment">/* ...styling */</mark></code>
+					<code>  <mark>animation: bounce 1s infinite;</mark></code>
+					<code>}</code>
+				</pre>
+			</div>
+		</div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- What are CSS animations? Bouncy ball with better animation -->
+		<div class="row">
+			<div class="col-2">
+				<figure class="demo-ball demo-ball-shading" style="-webkit-animation: demo-bounce-2 1s infinite;">
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-eye-separator"></div>
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-moustache"></div>
+				</figure>
+			</div>
+			<div class="col-4">
+				<pre>
+					<code>@keyframes bounce {</code>
+					<code>  <mark>30% { transform: scale(1.1, 0.8); }</mark></code>
+					<code>  50% { transform: translateY(-60px); }</code>
+					<code>  <mark>70% { transform: scale(1.1, 0.8); }</mark></code>
+					<code>}</code>
+				</pre>
+			</div>
+		</div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- What are CSS animations? Bouncy ball with shadow -->
+		<div class="row">
+			<div class="col-2">
+				<figure class="demo-ball demo-ball-shading" style="-webkit-animation: demo-bounce-2 1s infinite;">
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-eye-separator"></div>
+					<div class="demo-ball-eye"></div>
+					<div class="demo-ball-moustache"></div>
+				</figure>
+				<div class="demo-ball-shadow" style="
+  -webkit-animation: demo-shadow 1s infinite ease-in-out;"></div>
+			</div>
+			<div class="col-4">
+				<pre>
+					<code>@keyframes shadow {</code>
+					<code>  <mark>30% { width: 90%; }</mark></code>
+					<code>  50% { width: 75%; }</code>
+					<code>  <mark>70% { width: 90%; }</mark></code>
+					<code>}</code>
+				</pre>
+			</div>
+		</div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- What are CSS animations? Bouncy ball with blinking -->
+		<div class="row">
+			<div class="col-2">
+				<figure class="demo-ball demo-ball-shading" style="-webkit-animation: demo-bounce-2 1s infinite;">
+					<div class="demo-ball-eye" style="-webkit-animation: demo-blink 2.3s infinite;"></div>
+					<div class="demo-ball-eye-separator"></div>
+					<div class="demo-ball-eye" style="-webkit-animation: demo-blink 2.3s infinite;"></div>
+					<div class="demo-ball-moustache"></div>
+				</figure>
+				<div class="demo-ball-shadow" style="
+  -webkit-animation: demo-shadow 1s infinite ease-in-out;"></div>
+			</div>
+			<div class="col-4">
+				<pre>
+					<code>@keyframes blink {</code>
+					<code>  <mark>40% { height: 5px; }</mark></code>
+					<code>  50% { height: 0px; }</code>
+					<code>  <mark>60% { width: 5px; }</mark></code>
+					<code>}</code>
+				</pre>
+			</div>
+		</div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- Unprefixing CSS animations -->
+		<pre>
+	  		<code><mark>@keyframes</mark> bounce {</code>
+	  		<code>	<mark class="comment">/* awesome animation code */ </mark></code>
+	  		<code>}</code>
+	  	</pre>
+	  	<pre class="next">
+	  		<code><mark>@-webkit-keyframes</mark> bounce {</code>
+	  		<code>	<mark class="comment">/* same awesome animation code */ </mark></code>
+	  		<code>}</code>
+		</pre>
+	</div></section>
+	<section class="slide" style="text-align: center;"><div>
+		<!-- Complaints -->
+		<img src="pictures/complaint2.jpg" />
+		<img src="pictures/complaint1.jpg" />
+		<img src="pictures/complaint3.jpg" />
+	</div></section>
+	<section class="slide"><div>
+		<!-- Issues summary -->
+		<div class="row">
+			<div class="col-6"><img src="pictures/blocked-on.png"/></div>
+		</div>
+	</div></section>
+	<section class="slide" style="background: white url('pictures/dynamic-keyframes-issue.jpg') center no-repeat; background-size: contain;"><div>
+		<!-- Dynamic keyframes: Issue -->
+	</div></section>
+	<section class="slide"><div>
+		<!-- Dynamic keyframes: Example -->
+	    <div class="row">
+	    	<div class="col-2">
+	    		<div class="demo-square demo-spin-1">
+	    		</div>
+	    	</div>
+	    	<div class="col-4">
+				<pre>
+					<code>@keyframes spin {</code>
+					<code>  100% {</code>
+					<code>    transform: rotateZ(90deg);</code>
+					<code>  }</code>
+					<code>}</code>
+				</pre>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- Dynamic keyframes: Modifying rule -->
+	    <div class="row">
+	    	<div class="col-2">
+	    		<div class="demo-square demo-spin-2">
+	    		</div>
+	    	</div>
+	    	<div class="col-4">
+				<pre>
+					<code>@keyframes spin {</code>
+					<code>  100% {</code>
+					<code>    transform: rotateZ(90deg);</code>
+					<code>    <mark>background: orange;</mark></code>
+					<code>  }</code>
+					<code>}</code>
+				</pre>
+				<pre>
+					<code>rules = document.cssRules[0];</code>
+					<code><mark>rules[0].style.background = 'orange';</mark></code>
+				</pre>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- Dynamic keyframes: Change key text -->
+	    <div class="row">
+	    	<div class="col-2">
+	    		<div class="demo-square demo-spin-3">
+	    		</div>
+	    	</div>
+	    	<div class="col-4">
+				<pre>
+					<code>@keyframes spin {</code>
+					<code>  <mark>50%</mark> {</code>
+					<code>    transform: rotateZ(90deg);</code>
+					<code>    background: orange;</code>
+					<code>  }</code>
+					<code>}</code>
+				</pre>
+				<pre>
+					<code>rules = document.cssRules[0];</code>
+					<code>rules[0].style.background = 'orange';</code>
+					<code><mark>rules[0].keyText = '50%';</mark></code>
+				</pre>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- Dynamic keyframes: Change timing -->
+	    <div class="row">
+	    	<div class="col-2">
+	    		<div class="demo-square demo-spin-4">
+	    		</div>
+	    	</div>
+	    	<div class="col-4">
+				<pre>
+					<code>@keyframes spin {</code>
+					<code>  50% {</code>
+					<code>    transform: rotateZ(90deg);</code>
+					<code>    background: orange;</code>
+					<code>  }</code>
+					<code>}</code>
+				</pre>
+				<pre>
+					<code>rules = document.cssRules[0];</code>
+					<code>rules[0].style.background = 'orange';</code>
+					<code>rules[0].keyText = '50%';</code>
+					<code><mark>box.style.animationDuration = '3s';</mark></code>
+				</pre>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- Animation engine: No update -->
+	    <div class="row">
+	    	<div class="col-3">
+	    		<h2>Style Recalc</h2>
+	    	</div>
+	    	<div class="col-3">
+	    		<h2>Update</h2>
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-3">
+	    		<ul>
+	    			<li class="next">Calculate Update</li>
+	    			<ul class="next">
+	    				<li>Is outdated?</li>
+	    				<li>Update animation</li>
+	    			</ul>
+	    		</ul>
+	    	</div>
+	    	<div class="col-3 next">
+	    		<ul>
+	    			<li>Apply Update</li>
+	    			<ul>
+	    				<li>Not used</li>
+	    			</ul>
+	    		</ul>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide" style="background: black url('pictures/yuno.jpg') center no-repeat;"><div>
+		<!-- Dynamic keyframes: No LGTM -->
+	</div></section>
+	<section class="slide"><div>
+		<!-- Animation engine: No update -->
+	    <div class="row">
+	    	<div class="col-3">
+	    		<h2>Style Recalc</h2>
+	    	</div>
+	    	<div class="col-3">
+	    		<h2>Update</h2>
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-3">
+	    		<ul>
+	    			<li>Calculate Update</li>
+	    			<ul>
+	    				<li>Is outdated?</li>
+	    				<li class="strike">Update animation</li>
+	    			</ul>
+	    		</ul>
+	    	</div>
+	    	<div class="col-3">
+	    		<ul>
+	    			<li>Apply Update</li>
+	    			<ul>
+	    				<li>Update animation with new keyframes</li>
+	    			</ul>
+	    		</ul>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- Animation engine: No update -->
+	    <div class="row">
+	    	<div class="col-3">
+	    		<h2>Style Recalc</h2>
+	    	</div>
+	    	<div class="col-3">
+	    		<h2>Update</h2>
+	    	</div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-3">
+	    		<ul>
+	    			<li>Calculate Update</li>
+	    			<ul>
+	    				<li>Is outdated?</li>
+	    				<li class="next"><strong>Create temporary animation</strong></li>
+	    			</ul>
+	    		</ul>
+	    	</div>
+	    	<div class="col-3">
+	    		<ul>
+	    			<li>Apply Update</li>
+	    			<ul>
+	    				<li>Update animation with new keyframes</li>
+	    				<li class="next"><strong>Delete temporary animation</strong></li>
+	    			</ul>
+	    		</ul>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide shout"><div>
+		<!-- Demo -->
+		<h2>Demo!</h2>
+	</div></section>
+	<section class="slide" style="background: white url('pictures/neutral-keyframes-issue.jpg') center no-repeat; background-size: contain;"><div>
+		<!-- Dynamic keyframes: Issue -->
+	</div></section>
+	<section class="slide"><div>
+		<!-- Neutral keyframes: Animating from base style -->
+	    <div class="row">
+	    	<div class="col-6">
+	    		<div class="demo-bar demo-pulse-1">
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="row row-divider">
+	    	<div class="col-6">
+	    		<pre>
+					<code>.bar { width: 50px; }</code>
+				</pre>
+				<pre>
+					<code>@keyframes pulse {</code>
+					<code>  <mark>50% { width: 50%; }</mark></code>
+					<code>}</code>
+				</pre>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- Neutral keyframes: Animating from 100% -->
+	    <div class="row">
+	    	<div class="col-6">
+	    		<div class="demo-bar demo-pulse-2">
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="row row-divider">
+	    	<div class="col-6">
+	    		<pre>
+					<code>.bar { width: 50px; }</code>
+				</pre>
+				<pre>
+					<code>@keyframes pulse {</code>
+					<code>  50% { width: 50%; }</code>
+					<code>}</code>
+				</pre>
+				<pre>
+					<code><mark>bar.style.width = '100%';</mark></code>
+				</pre>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- Neutral keyframes: Capturing behaviour -->
+	    <div class="row">
+	    	<div class="col-6">
+	    		<div class="demo-bar demo-pulse-1">
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="row row-divider">
+	    	<div class="col-6">
+				<pre>
+					<code>@keyframes pulse {</code>
+					<code>  <mark class="comment">/* 0% { width: 50px; } */</mark></code>
+					<code>  50% { width: 50%; }</code>
+					<code>  <mark class="comment">/* 100% { width: 50px; } */</mark></code>
+					<code>}</code>
+				</pre>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- Neutral keyframes: Capturing behaviour -->
+	    <div class="row">
+	    	<div class="col-6">
+	    		<div class="demo-bar demo-pulse-2">
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="row row-divider">
+	    	<div class="col-6">
+				<pre>
+					<code>@keyframes pulse {</code>
+					<code>  <mark class="comment">/* 0% { width: 100%; } */</mark></code>
+					<code>  50% { width: 50%; }</code>
+					<code>  <mark class="comment">/* 100% { width: 100%; } */</mark></code>
+					<code>}</code>
+				</pre>
+	    	</div>
+	    </div>
+	</div></section>
+	<section class="slide"><div>
+		<!-- Conclusion -->
+		<h2>Conclusion</h2>
+		<ul>
+			<li>CSS animations add personality to the web.</li>
+			<li>Ready to use unprefixed animations by default in Chrome.</li>
+			<li>Developers will be much happier.</li>
+		</ul>
+	</div></section>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2014 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>

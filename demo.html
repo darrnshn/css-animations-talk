@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<style>
+  @-webkit-keyframes anim {
+  }
+
+  #target {
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    padding: 0px;
+    margin-left: -10px;
+    margin-top: -10px;
+    position: absolute;
+    border: 10px solid #ffba00;
+  }
+
+  .box:before { content: attr(data-box-number); }
+
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: #057d9f;
+    position: absolute;
+    font-size: 86px;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+  }
+</style>
+<body style="background: white;">
+  <div id="container">
+    <div id="target"></div>
+  </div>
+  <pre id="output" style="font-size: 28px"></pre>
+</body>
+<script>
+var mydragg = function(){
+                return {
+                    move : function(divid,xpos,ypos){
+                        divid.style.left = xpos + 'px';
+                        divid.style.top = ypos + 'px';
+                    },
+                    startMoving : function(divid,container,evt){
+                        evt = evt || window.event;
+                        var posX = evt.clientX,
+                            posY = evt.clientY,
+                        divTop = divid.style.top,
+                        divLeft = divid.style.left,
+                        eWi = parseInt(divid.style.width),
+                        eHe = parseInt(divid.style.height),
+                        cWi = parseInt(document.getElementById(container).style.width),
+                        cHe = parseInt(document.getElementById(container).style.height);
+                        document.getElementById(container).style.cursor='move';
+                        divTop = divTop.replace('px','');
+                        divLeft = divLeft.replace('px','');
+                        var diffX = posX - divLeft,
+                            diffY = posY - divTop;
+                        document.onmousemove = function(evt){
+                            evt = evt || window.event;
+                            var posX = evt.clientX,
+                                posY = evt.clientY,
+                                aX = posX - diffX,
+                                aY = posY - diffY;
+                                if (aX < 0) aX = 0;
+                                if (aY < 0) aY = 0;
+                                if (aX + eWi > cWi) aX = cWi - eWi;
+                                if (aY + eHe > cHe) aY = cHe -eHe;
+                            mydragg.move(divid,aX,aY);
+                            updateTarget(divid);
+                        }
+                    },
+                    stopMoving : function(container){
+                        var a = document.createElement('script');
+                        document.getElementById(container).style.cursor='default';
+                        document.onmousemove = function(){}
+                    },
+                }
+            }();
+
+  var rules = document.styleSheets[0].rules || document.styleSheets[0].cssRules;
+  var keyframes = rules[0];
+
+  var numBoxes = 5;
+
+  function updateTarget(box) {
+    keyframes[box.i].style.left = getComputedStyle(box).left;
+    keyframes[box.i].style.top = getComputedStyle(box).top;
+    output.innerHTML = keyframes.cssText;
+  }
+
+  for (var i = 0; i < numBoxes; i++) {
+    var box = document.createElement("div");
+    box.setAttribute('class', 'box');
+    box.style.left = (i * 200 + 50) + 'px';
+    box.style.top = '400px';
+    box.i = i;
+    box.setAttribute('data-box-number', i+1);
+
+    box.addEventListener("mousedown", function(e) {
+       mydragg.startMoving(this, "container", e);
+    });
+
+    box.addEventListener("mouseup", function() {
+       mydragg.stopMoving("container");
+    });
+
+    keyframes.insertRule(i * (100 / (numBoxes - 1)) + '%' + '{}');
+    container.appendChild(box);
+    updateTarget(box);
+  }
+
+  target.style['-webkit-animation'] = 'anim ' + numBoxes / 2 + 's alternate infinite ease-in-out';
+
+</script>
